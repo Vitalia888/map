@@ -23,6 +23,7 @@ html, body {
     background-image: url(../images/map.jpg);
     background-size: cover;
     transform-origin: 0 0;
+    /* чтобы была красивая анимация при увеличении/уменьшении карты */
     transition: transform .3s ease-out;
 }
 
@@ -35,6 +36,7 @@ html, body {
     width: 100%;
     overflow: hidden;
     height: 100vh;
+    /* хак для починки багу с размерами на safari */
     height: calc(var(--vh, 1vh) * 100);
 }
 
@@ -215,17 +217,6 @@ left: 800px;
     font-size: 24px;
 }
 
-.tentacle {
-    position: absolute;
-    top: 2490px;
-    left: 360px;
-    background-image: url(../images/tentacle.png);
-    background-size: cover;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    width: 267px;
-    height: 260px;
-
 .monument {
     position: absolute;
     top: 925px;
@@ -336,16 +327,7 @@ left: 800px;
     top: 1850px;
     left: 1400px;
 }
-.sign {
-  position: absolute;
-  background-image: url(../images/sign.png);
-  top: 1270px;
-  left: 2170px;
-  width: 445px;
-  height: 400px;
-  transform: scale(0.5);
 
-}
 .big-eye {
     position: absolute;
     bottom: 120px;

@@ -3,14 +3,6 @@ const questState = {
     codeEnter: false
 }
 
-const tentacle = document.querySelector('.tentacle');
-let tentacleCounter = 0;
-
-setInterval(() => {
-    tentacle.style.backgroundPositionX = `${-267 * tentacleCounter}px`;
-    tentacleCounter = (tentacleCounter === 3 ? 0 : (tentacleCounter + 1));
-}, 300);
-
 const bigEye = document.querySelector('.big-eye');
 let eyeCounter = 0;
 
@@ -102,7 +94,7 @@ let monumentCounter = 1;
 let diffMonumentCounter = 1;
 
 monument.addEventListener('click', (event) => {
-    // останавливаем всплытие события клика, чтобы не отрабатывал зум по двойному клику
+    // останавливаем всплытие события клика, чтобы у нас не отрабатывал зум по двойному клику
     event.preventDefault();
     event.stopPropagation();
 
@@ -155,7 +147,7 @@ const onModalActive = function (item) {
             const showedModal = document.querySelector('.modal.showed');
 
             if (showedModal && modal !== showedModal) {
-                // если есть открытое другое окно, то закрываем его
+                // если у нас есть открытое другое окно, то закрываем его
                 showedModal.classList.remove('showed');
             }
 
