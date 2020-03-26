@@ -215,6 +215,17 @@ left: 800px;
     font-size: 24px;
 }
 
+.tentacle {
+    position: absolute;
+    top: 2490px;
+    left: 360px;
+    background-image: url(../images/tentacle.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 267px;
+    height: 260px;
+
 .monument {
     position: absolute;
     top: 925px;

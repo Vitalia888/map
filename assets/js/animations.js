@@ -3,6 +3,14 @@ const questState = {
     codeEnter: false
 }
 
+const tentacle = document.querySelector('.tentacle');
+let tentacleCounter = 0;
+
+setInterval(() => {
+    tentacle.style.backgroundPositionX = `${-267 * tentacleCounter}px`;
+    tentacleCounter = (tentacleCounter === 3 ? 0 : (tentacleCounter + 1));
+}, 300);
+
 const bigEye = document.querySelector('.big-eye');
 let eyeCounter = 0;
 
