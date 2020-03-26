@@ -23,7 +23,6 @@ html, body {
     background-image: url(../images/map.jpg);
     background-size: cover;
     transform-origin: 0 0;
-    /* чтобы была красивая анимация при увеличении/уменьшении карты */
     transition: transform .3s ease-out;
 }
 
@@ -36,7 +35,6 @@ html, body {
     width: 100%;
     overflow: hidden;
     height: 100vh;
-    /* хак для починки багу с размерами на safari */
     height: calc(var(--vh, 1vh) * 100);
 }
 

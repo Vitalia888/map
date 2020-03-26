@@ -94,7 +94,7 @@ let monumentCounter = 1;
 let diffMonumentCounter = 1;
 
 monument.addEventListener('click', (event) => {
-    // останавливаем всплытие события клика, чтобы у нас не отрабатывал зум по двойному клику
+    // останавливаем всплытие события клика, чтобы не отрабатывал зум по двойному клику
     event.preventDefault();
     event.stopPropagation();
 
@@ -147,7 +147,7 @@ const onModalActive = function (item) {
             const showedModal = document.querySelector('.modal.showed');
 
             if (showedModal && modal !== showedModal) {
-                // если у нас есть открытое другое окно, то закрываем его
+                // если есть открытое другое окно, то закрываем его
                 showedModal.classList.remove('showed');
             }
 

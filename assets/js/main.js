@@ -1,4 +1,4 @@
-// достаём из урла парметры стартовой позиции
+// парметры стартовой позиции
 const urlParams = new URLSearchParams(window.location.search);
 const startParams = (urlParams.get('start') || '').split(';');
 const debugMode = (urlParams.get('debug') || false);
@@ -14,7 +14,7 @@ const zoomButton = document.querySelector('.zoom');
 const coordsInput = document.querySelector('.coords');
 const debugPanel = document.querySelector('.debug-panel');
 
-// Высота панели управления. Нужно здесь задавать для расчета границ передвижения по карте
+// Высота панели управления.
 const CONTROL_PANEL_HEIGHT = debugMode ? 78 : 0;
 
 let containerParams = container.getBoundingClientRect();
@@ -28,9 +28,7 @@ window.addEventListener('resize', () => {
 
 // обновление координат в поле ввода
 const updateCoordsInput = () => {
-    // parseInt(mapState.offset.x) – значение в смещении не целочисленного, а десятичная дробь
-    // нам точное значени не нужно, чтобы получить примерные координаты
-    // поэтому отрезаем все, что после запятой с помощью parseInt
+
     coordsInput.value = `${parseInt(mapState.offset.x)};${parseInt(mapState.offset.y)}`;
 }
 
@@ -53,10 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .on('doubletap', zoomMap)
         .draggable({
             modifiers: [
-                // настройка границ, в которых мы можем двигать нашу карту
+                // настройка границ, в которых можно двигать карту
                 interact.modifiers.restrictEdges({
                     // насколько можем сдвинуть левый и верхний края в положительную сторону
-                    // какая-то фигня, если делать на весь экран, то требуется учитывать разницу
+
                     inner: {
                         left: 0,
                         top: CONTROL_PANEL_HEIGHT,
@@ -108,9 +106,7 @@ const getOffset = (coord, zoomDiff, zommDiffCoef) => {
     // считаем смещение
     const offset = mapState.offset[coord] * zoomDiff + zommDiffCoef * containerParams[measurement] / 2;
 
-    // mapParams[measurement] - в квадратных скобках указана ссылка на название поля в объекте mapParams. Поле в данном случее это либо width, либо height
-    // Находим максимум между максимальным смещением, что позволяет сделать контейнер, и тем сколько у нас получилось по формуле
-    // Используем Math.max, потому что смещение влево - это отрицательное значение в translate. Поэтому берем верхнюю границу из диапазона
+
     return Math.max(maxOffset, offset);
 }
 
@@ -124,8 +120,7 @@ const updateStateOffset = () => {
     const diffX = getOffset('x', zoomDiff, zommDiffCoef);
     const diffY = getOffset('y', zoomDiff, zommDiffCoef)
 
-    // Здесь уже считаем максимальное смещение впарво, чтобы там не создавать пустоту.
-    // Используем Math.min, потому что смещение вправо - это положительное значение в translate. Поэтому берем нижнюю границу из диапазона
+
     mapState.offset.x = Math.min(0, diffX);
     mapState.offset.y = Math.min(0, diffY);
 };
