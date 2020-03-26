@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Cuprum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="assets/styles/lights.css">
+</head>
+
+<body>
+    <div class="debug-panel">
+        <button class="zoom">zoom</button>
+        <input class="coords" type="text" />
+    </div>
+    <div class="container">
+        <div class="map draggable">
+            <div class="modal-area modal-area__city">
+                <div class="modal">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ГОРОД МОНСТРОВ</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            безопасная зона
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            город, полностью населенный монстрами. Эти монстры наиболее открыты<br>
+                            к контакту с человеком, так как прошли обучение<br>
+                            и знают людские обычаи.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__centre">
+                <div class="modal modal_centre">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ПЛОЩАДЬ</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            безопасная зона
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            главная площадь, где для поситителей собраны разнообразные магазины<br> и кафе, в которых можно
+                            провести свободное время<br> с пользой.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__forest">
+                <div class="modal modal_forest">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ЛЕС</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            средняя
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            лес является одной из самых больших и привычных зон обитания для монстров.
+                            В данном лесу проживают в основном спокойны и миролюбивые монстры. Однако стоит относиться к ним с уважением.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__dangerforest">
+                <div class="modal modal_dangerforest">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ХВОЙНЫЙ ЛЕС</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            опасная зона
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            в этой зоне леса проживают опасные виды монстров. Территория огорожена и пройти на нее можно только
+                            с опытным проводником, заказав экскурсию.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__parking">
+                <div class="modal modal_parking">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ПАРКИНГ</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            безопасная зона
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            здесь посетители могут оставить свои машины.<br> Для эффективного передвижения<br> по территории
+                            в парке имеется свой транспорт.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__school">
+                <div class="modal modal_school">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ШКОЛА МОНСТРОВ</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            средняя
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            учебное заведение, где монстров учат безопасному взаимодействию с людьми. Свободна для посещения,<br> а также здесь имеется возможность волонтерства.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__castle">
+                <div class="modal modal_castle">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ЗАМОК</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            безопасная зона
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            в замке проживает главный монстр парка — король монстров. Предварительно забронировав время, поситетели могут
+                            нанести королю визит. Правда он редко бывает дома.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__hotel">
+                <div class="modal modal_hotel">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ОТЕЛЬ</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            безопасная зона
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            отель создан для людей, которые захотели задержаться<br> в парке, чтобы полностью изучить его территорию.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__lake">
+                <div class="modal modal_lake">
+                    <div class="modal__header">
+                        <h4 class="modal__title">ОЗЕРО</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            безопасная зона
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            в этом озере плавают исключительно мирные, прирученные чудовища. Кстати, они<br> с радостью
+                            составят компанию посетителям парка.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-area modal-area__see">
+                <div class="modal modal_see">
+                    <div class="modal__header">
+                        <h4 class="modal__title">БОЛОТО</h4>
+                    </div>
+                    <div class="modal__content">
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Опасность:</span>
+                            опасная зона
+                        </p>
+                        <p class="modal__text">
+                            <span class="modal__subtitle">Описание:</span>
+                            мутная вода таит в себе страшные тайны, а пылающее фиолетовое пламя вокруг этого места
+                            предупредупреждает не соваться сюда без профессионалов.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="light light_1 light_blink"></div>
+            <div class="light light_2 light_blink_2"></div>
+            <div class="light light_3 light_blink_3"></div>
+            <div class="light light_4 light_blink_4"></div>
+            <div class="light light_5 light_blink_5"></div>
+            <div class="light light_6 light_blink_6"></div>
+            <div class="light light_7 light_blink_7"></div>
+            <div class="light light_8 light_blink_8"></div>
+            <div class="light light_9 light_blink_9"></div>
+            <div class="light light_10 light_blink_10"></div>
+            <div class="light light_11 light_blink_11"></div>
+            <div class="monument"></div>
+            <div class="code"></div>
+            <div class="hand"></div>
+            <div class="fire"></div>
+            <div class="dream"></div>
+            <div class="cutter cutter_king">
+                <div class="king"></div>
+            </div>
+            <div class="stereo"></div>
+            <div class="code-input-container">
+                <input class="code-input" type="number" />
+            </div>
+            <div class="big-eye"></div>
+            <div class="dance-man"></div>
+            <div class="bubbles"></div>
+            <div class="monstr"></div>
+            <div class="fly-monster"></div>
+            <div class="cutter cutter_big-head">
+                <div class="big-head"></div>
+            </div>
+            <div class="cutter cutter_tongue">
+                <div class="tongue"></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/interact.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+
+</html>

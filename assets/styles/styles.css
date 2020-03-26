@@ -1,0 +1,498 @@
+:root {
+    --debug-panel-height: 78px;
+}
+
+@font-face {
+    font-family: 'Konstanting';
+    src: url('../fonts/konstanting.ttf') format('truetype');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.map {
+    /* width: 7013px;
+    height: 5593px; */
+    width: 3506px;
+    height: 2805px;
+    position: relative;
+    background-image: url(../images/map.jpg);
+    background-size: cover;
+    transform-origin: 0 0;
+    /* чтобы была красивая анимация при увеличении/уменьшении карты */
+    transition: transform .3s ease-out;
+}
+
+.draggable {
+    touch-action: none;
+    user-select: none;
+}
+
+.container {
+    width: 100%;
+    overflow: hidden;
+    height: 100vh;
+    /* хак для починки багу с размерами на safari */
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+.modal {
+    position: absolute;
+    top: 130px;
+    left: 900px;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    box-shadow: 0 4px 8px 2px rgba(0,0,0,.5);
+    background-color: #BB64FF;
+}
+
+.modal__header {
+    background-color: #7751E2;
+    color: #000;
+}
+
+.modal__title {
+    font-family: 'Konstanting';
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 28px;
+}
+
+.modal__content {
+    padding: 12px;
+    color: #000;
+    width: 180px;
+    font-family: 'Cuprum', sans-serif;
+}
+
+.modal__text {
+    margin: 0 0 8px 0;
+}
+
+.modal__subtitle {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.modal.showed {
+    opacity: 1;
+}
+
+.modal-area {
+    position: absolute;
+    z-index: 10;
+}
+
+.modal-area__city {
+    width: 1400px;
+    height: 800px;
+    top: 0px;
+    left: 0px;
+}
+
+.modal-area__centre {
+width: 300px;
+height: 400px;
+top: 950px;
+left: 1100px;
+}
+.modal_centre {
+position: absolute;
+top: 0px;
+left: 10px;
+}
+
+.modal-area__forest {
+width: 1050px;
+height: 700px;
+top: 1300px;
+left: 0px;
+}
+.modal_forest {
+position: absolute;
+top: 300px;
+left: 700px;
+}
+
+.modal-area__dangerforest {
+width: 700px;
+height: 700px;
+bottom: 0px;
+left: 0px;
+}
+.modal_dangerforest {
+position: absolute;
+top: 300px;
+left: 100px;
+}
+
+.modal-area__parking {
+width: 700px;
+height: 320px;
+bottom: 0px;
+left: 840px;
+}
+.modal_parking {
+position: absolute;
+top: 30px;
+left: 200px;
+}
+
+.modal-area__school {
+width: 500px;
+height: 600px;
+top: 1600px;
+left: 1200px;
+}
+.modal_school {
+position: absolute;
+top: 30px;
+left: 80px;
+}
+
+.modal-area__castle {
+width: 800px;
+height: 600px;
+bottom: 0px;
+right: 0px;
+}
+.modal_castle {
+position: absolute;
+top: 30px;
+left: 80px;
+}
+
+.modal-area__hotel {
+width: 500px;
+height: 400px;
+top: 500px;
+right: 0px;
+}
+.modal_hotel {
+position: absolute;
+top: 0px;
+left: 150px;
+}
+
+.modal-area__lake {
+width: 450px;
+height: 400px;
+top: 630px;
+right: 800px;
+}
+.modal_lake {
+position: absolute;
+top: 0px;
+left: 0px;
+}
+
+.modal-area__see {
+width: 750px;
+height: 300px;
+top: 0px;
+right: 800px;
+}
+.modal_see {
+position: absolute;
+top: 100px;
+left: 800px;
+}
+
+.debug-panel {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    height: var(--debug-panel-height);
+}
+.debug-panel.show {
+    display: flex;
+}
+
+.zoom {
+    background-color: #fff;
+    font-size: 24px;
+}
+
+.monument {
+    position: absolute;
+    top: 925px;
+    left: 1420px;
+    background-image: url(../images/monument.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 240px;
+    height: 260px;
+}
+
+.hand {
+    position: absolute;
+    top: 520px;
+    left: 1630px;
+    transform: scale(1.5);
+    background-image: url(../images/hand.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 346px;
+    height: 260px;
+}
+
+.fire {
+    position: absolute;
+    top: 66px;
+    left: 1882px;
+    transform: scale(1.5);
+    background-image: url(../images/fire.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 274px;
+}
+
+.dream {
+    opacity: 1;
+    position: absolute;
+    top: 1900px;
+    left: 1500px;
+    transform: scale(1.5);
+    background-image: url(../images/dream.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    transition: opacity 1s ease-out;
+}
+
+.dream.hide {
+    opacity: 0;
+}
+
+.code {
+    opacity: 0;
+    position: absolute;
+    top: 1030px;
+    left: 1700px;
+    background-image: url(../images/code.png);
+    background-size: contain;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 115px;
+    height: 200px;
+    transition: opacity 3s ease-out 1s;
+}
+.code.show {
+    opacity: 1;
+}
+
+.stereo {
+    position: absolute;
+    top: 1590px;
+    left: 1750px;
+    background-image: url(../images/stereo.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 200px;
+}
+
+.code-input-container {
+    position: absolute;
+    top: 1780px;
+    left: 1820px;
+}
+
+.king {
+    transform: translateY(100%);
+    background-image: url(../images/king.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 470px;
+    height: 300px;
+}
+.king.show {
+    animation: king 10s ease-in-out infinite;
+}
+
+.cutter_king {
+    position: absolute;
+    top: 1850px;
+    left: 1400px;
+}
+
+.big-eye {
+    position: absolute;
+    bottom: 120px;
+    left: 2140px;
+    transform: scale(2);
+    background-image: url(../images/eyes.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 330px;
+    height: 300px;
+}
+
+.dance-man {
+    position: absolute;
+    top: 370px;
+    left: 2300px;
+    background-image: url(../images/dance-man.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 325px;
+    height: 260px;
+}
+
+.bubbles {
+    position: absolute;
+    top: 780px;
+    left: 2240px;
+    background-image: url(../images/bubbles.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 543px;
+    height: 300px;
+}
+
+.cutter {
+    position: absolute;
+    overflow: hidden;
+}
+
+.cutter_big-head {
+    position: absolute;
+    top: 910px;
+    left: 2950px;
+}
+
+.big-head {
+    background-image: url(../images/big-head.png);
+    background-size: contain;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    animation: big_head 10s ease-in-out infinite;
+}
+
+.cutter_tongue {
+    position: absolute;
+    top: 1140px;
+    left: 200px;
+}
+
+.tongue {
+    background-image: url(../images/tongue.png);
+    background-size: contain;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 210px;
+    height: 100px;
+    animation: tongue 8s ease-in-out infinite;
+}
+
+.fly-monster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../images/flymonster.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 256px;
+    height: 209px;
+    animation: fly-monster 30s ease-in-out infinite;
+}
+
+.monstr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../images/monstr.png);
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 256px;
+    height: 209px;
+    animation: monstr 30s ease-in-out infinite;
+}
+
+@keyframes big_head {
+    0%, 100% {
+        transform: translateY(100%);
+    }
+    25%, 35%, 45% {
+        transform: translateY(25%);
+    }
+    30%, 40% {
+        transform: translateY(27%);
+    }
+    70% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes king {
+    0%, 100% {
+        transform: translateY(100%);
+    }
+    25%, 35%, 45% {
+        transform: translateY(25%);
+    }
+    30%, 40% {
+        transform: translateY(27%);
+    }
+    70% {
+        transform: translateY(20%);
+    }
+}
+
+@keyframes tongue {
+    0%, 100% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(-10%);
+    }
+}
+
+@keyframes fly-monster {
+    0% {
+        top: 20%;
+        left: -300px;
+    }
+    50% {
+        top: 30%;
+        left: 40%;
+    }
+    100% {
+        top: 70%;
+        left: calc(100% + 300px);
+    }
+}
+
+@keyframes monstr {
+    0% {
+        top: 80%;
+        left: calc(100% + 300px);
+    }
+    50% {
+        top: 45%;
+        left: 45%;
+    }
+    100% {
+        top: 10%;
+        left: calc(0% - 300px);
+    }
+}
